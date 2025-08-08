@@ -1,8 +1,8 @@
 import "./Transaction.scss";
-import type { Transaction } from "../../types";
+import type { Transactions } from "../../types";
 
 const Transaction = () => {
-  const transactions: Transaction[] = [
+  const transactions: Transactions[] = [
     {
       id: "1",
       date: "2023-10-01",
