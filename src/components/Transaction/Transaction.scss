@@ -1,0 +1,145 @@
+.transaction {
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.transaction__container {
+  width: 100%;
+}
+
+.transaction__header {
+  display: flex;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transaction__header-cell {
+  flex: 1;
+  padding: 16px 24px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #f3f4f6;
+  }
+
+  .sort-arrow {
+    margin-left: 8px;
+    font-size: 10px;
+    color: #9ca3af;
+  }
+}
+
+.transaction__row {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #f9fafb;
+  }
+}
+
+.transaction__cell {
+  flex: 1;
+  padding: 16px 24px;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+
+  &.positive {
+    color: #22c55e;
+    font-weight: 500;
+  }
+
+  &.negative {
+    color: #ef4444;
+    font-weight: 500;
+  }
+}
+
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+
+  &.credit {
+    // background-color: #dcfce7;
+    background: rgba(52, 97, 111, 0.09);
+
+    // color: #166534;
+    color: #1b2528;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+    }
+  }
+
+  &.debit {
+    // background-color: #fee2e2;
+    background: rgba(52, 97, 111, 0.09);
+
+    // color: #991b1b;
+    color: #1b2528;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ef4444;
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .transaction__header,
+  .transaction__row {
+    flex-direction: column;
+  }
+
+  .transaction__header-cell,
+  .transaction__cell {
+    flex: none;
+    // width: 100%;
+    padding: 12px 16px;
+  }
+
+  .transaction__header {
+    display: none; /* Hide headers on mobile */
+  }
+
+  .transaction__row {
+    margin-bottom: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 12px;
+  }
+
+  .transaction__cell {
+    justify-content: space-between;
+
+    &::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #6b7280;
+      margin-right: 8px;
+    }
+  }
+}
